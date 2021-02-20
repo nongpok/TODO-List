@@ -3,33 +3,89 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TODO List App</title>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/background.css">
+        
+        
         <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
 
-    <!-- html code for the animated background -->
-    <div class="purple"></div>
-    <div class="medium-blue"></div>
-    <div class="light-blue"></div>
-    <div class="red"></div>
-    <div class="orange"></div>
-    <div class="yellow"></div>
-    <div class="cyan"></div>
-    <div class="light-green"></div>
-    <div class="lime"></div>
-    <div class="magenta"></div>
-    <div class="lightish-red"></div>
-    <div class="pink"></div>
+        <!-- Background animation -->
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
 
-    </body>
-    <div id="first-div">
-        <section class="title center-text-align">
-            <h1><i class="fas fa-pencil-alt" style="color:#ff2a6a; margin-right: 10px;"></i>TODO-List App</h1>
+        <!-- Main section container -->
+        <section id="main">
+            <div id="heading">
+                <h1 class="text-center-align"><i class="fas fa-pencil-alt" style="color:#ff2a6a"></i>TODO-List App</h1>
+            </div>
+            
+            <hr style="color: rgb(240, 78, 14);">
+
+            <form id="create-task-form" action="/create-task" method="POST">
+
+                <div id="description-container">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" placeholder="What do you need to do?" required></textarea>
+                </div>
+
+                <hr class="opacity-class" style="color: grey;">
+
+                <div id="category-date-container">
+                    <div id="category-container">
+                        <select id="category" name="category">
+                            <option selected>Choose a Category</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="School">School</option>
+                            <option value="Cleaning">Cleaning</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="vertical-line"></div>
+                    <div id="date-container">
+                        <input type="text" id="datepicker" placeholder="Due Date" name="due_date">
+                    </div>
+                </div>
+                <hr class="opacity-class" style="color: grey;">
+            </form>
+
+            <div class="buttons-container">
+                <div>
+                    <button id="add-button" type="submit" class="common-padding-class button-class" form="create-task-form">
+                        <i class="fas fa-plus"></i> ADD TASK
+                    </button>
+                </div>
+                <div>
+                    <button id="delete-button" class="common-padding-class button-class" type="submit" form="delete-task-form">
+                        <i class="fas fa-trash-alt"></i> DELETE TASK
+                    </button>
+                </div>
+            </div>
+
+            <hr class="opacity-class" style="color: grey;">
+
+
+                <!-- form to delete the selected tasks -->
+            <form id="delete-task-form" method="GET" action="/delete-task">
+                <div class="task-container">
+                    <input type="checkbox" class="checkbox-class" name="select_task">
+                    <label for="select_task">
+                        <p><b>Go to School</b></p>
+                        <p><i class="fas fa-calendar-alt" style="margin-right: 15px;"></i>Wed 7th Feb</p>
+                    </label>
+                    <span class="category-span">Personal</span>
+                </div>
+                <hr class="opacity-class" style="color: grey;">
+            </form>
+
         </section>
-        
-        <hr class="common-horizontal-line">
-    </div>
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
 </html>
