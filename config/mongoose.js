@@ -1,5 +1,5 @@
 //require the libaray
-const mongoose = require('moongose');
+const mongoose = require('mongoose');
 
 //connect to the database
 mongoose.connect('mongodb://localhost/todo_list_db');

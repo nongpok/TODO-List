@@ -1,6 +1,14 @@
 const express = require('express');
 const port = 8000;
+
+const db = require('./config/mongoose');
+
+const TodoList = require('./models/todo_list');
+
 const app = express();
+
+
+
 
 
 app.set('view engine', 'ejs');
@@ -16,7 +24,14 @@ app.get('/', function(req, res){
 
 
 app.post('/create-task', function(req, res){
-    return res.redirect('back');
+    TodoList.create(req.body, function(err, newTask){
+        if(err){
+            console.log('error in creating a task');
+            return;
+        }
+        console.log('****************', newTask);
+        return res.redirect('back');
+    });
 });
 
 app.get('/delete-task', function(req, res){
