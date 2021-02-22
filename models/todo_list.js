@@ -9,8 +9,7 @@ const todoListSchema = new mongoose.Schema({
         required: true
     },
     due_date:{
-        type: Date,
-        required: true
+        type: Date
     }
 });
 

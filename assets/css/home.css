@@ -103,10 +103,9 @@ body{
 
 textarea{
     resize: vertical;
-    height: 60px;
+    height: 50px;
     padding: 10px;
     margin: 10px 0px 10px 0px;
-    height: 40px;
 }
 
 
@@ -138,21 +137,25 @@ button[id="add-button"] {
     border-radius: 5px;
     font-weight: 600;
 }
-
-button[id="delete-button"] {
-    color: white;
-    background-color: #e63e4e;
-    border: 0px;
-    border-radius: 5px;
-    font-weight: 600;
-}
-
 button[id="add-button"]:hover{
     background: rgb(6, 168, 87);
     cursor: pointer;
 }
+.delete-button-container{
+    display: flex;
+    align-items: center;
+}
+#delete-button{
+    color: white;
+    background-color: #e63e4e;
+    border: 0px;
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px;
+}
 
-button[id="delete-button"]:hover{
+#delete-button:hover{
     background: rgb(212, 37, 14);
     cursor: pointer;
 }
@@ -173,6 +176,7 @@ button[id="delete-button"]:hover{
     padding: 0px;
     margin: 0;
     margin-left: 10px;
+    margin-bottom: 5px;
 }
 
 .task-container label{
