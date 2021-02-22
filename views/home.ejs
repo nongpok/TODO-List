@@ -3,39 +3,43 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TODO List App</title>
+        <!-- using jquery -->
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <!-- using font awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-        
-        
+        <!-- using my own stylesheet -->
         <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
 
-        <!-- Background animation -->
+        <!-- Background divs for the animation -->
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
 
         <!-- Main section container -->
         <section id="main">
+            <!-- heading for the app -->
             <div id="heading">
                 <h1 class="text-center-align"><i class="fas fa-pencil-alt" style="color:#ff2a6a"></i>TODO-List App</h1>
             </div>
             
+            <!-- horizontal line -->
             <hr style="color: rgb(240, 78, 14);">
 
+            <!-- form for creating a task -->
             <form id="create-task-form" action="/create-task" method="POST">
-
                 <div id="description-container">
                     <label for="description">Description</label>
                     <textarea id="description" name="description" placeholder="What do you need to do?" required></textarea>
                 </div>
 
+                <!-- horizontal line -->
                 <hr class="opacity-class" style="color: grey;">
-
+                <!-- category and date container -->
                 <div id="category-date-container">
                     <div id="category-container">
                         <select id="category" name="category">
@@ -47,21 +51,24 @@
                             <option value="Other">Other</option>
                         </select>
                     </div>
-
+                    <!-- vertcal line-->
                     <div class="vertical-line"></div>
                     <div id="date-container">
                         <input type="text" id="datepicker" placeholder="Due Date" name="due_date">
                     </div>
                 </div>
+                <!-- horizontal line -->
                 <hr class="opacity-class" style="color: grey;">
             </form>
 
+            <!-- buttons for adding and deleting tasks -->
             <div class="buttons-container">
                 <div>
                     <button id="add-button" type="submit" class="common-padding-class button-class">
                         <i class="fas fa-plus"></i> ADD TASK
                     </button>
                 </div>
+                <!-- actually a link but designed as a button -->
                 <div class="delete-button-container">
                     <a id="delete-button">
                         <i class="fas fa-trash-alt"></i> DELETE TASK
@@ -69,12 +76,13 @@
                 </div>
             </div>
 
+            <!-- horizontal line -->
             <hr class="opacity-class" style="color: grey;">
 
 
-                <!-- form to delete the selected tasks -->
+            <!-- form to delete the selected tasks -->
             <form id="delete-task-form" method="GET">
-                
+                <!-- fetching the task list -->
                 <% for (let t of taskLists) { %>
                     <div class="task-container">
                         <input type="checkbox" class="checkbox-class" id="<%= t._id %>">
@@ -83,6 +91,7 @@
                             <span><i class="fas fa-calendar-alt" style="margin-right: 5px;"></i></span>
                             <span class="date">
                                 <% if(t.due_date == null) { %>
+                                    <!-- if date field value is null then "No Deadline" will be printed -->
                                     <%= "No Deadline" %>
                                 <% }else{ %>
                                     <%= t.due_date %>
@@ -91,11 +100,14 @@
                         </label>
                         <span class="category-span"><%= t.category %></span>
                     </div>
+                    <!-- horizontal line -->
                     <hr class="opacity-class" style="color: grey;">
                 <% } %> 
             </form>
 
         </section>
+        
+        <!-- custom script for form validation and handling events-->
         <script type="text/javascript" src="/js/home.js"></script>
     </body>
 </html>

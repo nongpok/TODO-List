@@ -1,7 +1,7 @@
 //setting the date format for the input date
 var date = $("#datepicker").datepicker({ dateFormat: 'mm-dd-yy' });
 
-//fetching the add an delete button
+//fetching the add and delete button
 var addButton = $("#add-button");
 var deleteButton = $("#delete-button");
 

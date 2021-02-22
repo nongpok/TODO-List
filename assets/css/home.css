@@ -3,8 +3,7 @@ html, body {
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
-
+/* setting up the body properties */
 body{
     margin: 0;
     padding: 0;
@@ -14,8 +13,6 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     background: linear-gradient(to bottom, #00c3ff, #ffff1c);
 }
-
-
 
 
 /* Background animation effect */
@@ -69,38 +66,40 @@ body{
 
 
 
-
+/* setting up the main container */
 #main{
     background-color: white;
     opacity: 0.85;
     width: 50%;
     margin: auto;
-    height: 100vh;
     padding: 0px 20px 0px 20px;
     min-width: 340px;
     overflow: hidden;
     border-radius: 10px;
 }
 
+/* heading section */
 #heading{
     height: 50px;
 }
 #heading i{
     margin-right: 10px;
 }
-
 #heading h1{
     font-weight: 600;
     letter-spacing: 0.1rem;
     color: brown;
 }
+
+
+/* description container */
 #description-container{
     display: flex;
     flex-direction: column;
     margin-top: 3px;
 
 }
-
+/* customizing the textarea */
 textarea{
     resize: vertical;
     height: 50px;
@@ -108,28 +107,28 @@ textarea{
     margin: 10px 0px 10px 0px;
 }
 
-
+/* category and date container */
 #category-date-container{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin: 15px 0px 15px 0px;
 }
-
 #category{
     padding: 10px;
 }
-
 #datepicker{
     padding: 10px;
 }
 
+
+/* buttons container */
 .buttons-container{
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 15px;
 }
-
+/* customizing the add button */
 button[id="add-button"] {
     color: white;
     background-color: #2dc935;
@@ -141,6 +140,8 @@ button[id="add-button"]:hover{
     background: rgb(6, 168, 87);
     cursor: pointer;
 }
+
+/* customizing the delete button */
 .delete-button-container{
     display: flex;
     align-items: center;
@@ -154,19 +155,19 @@ button[id="add-button"]:hover{
     text-decoration: none;
     padding: 15px;
 }
-
 #delete-button:hover{
     background: rgb(212, 37, 14);
     cursor: pointer;
 }
 
+/* form for deleting task */
 #delete-task-form{
-    height: 400px;
+    max-height: 50vh;
     overflow: scroll;
     padding: 0;
     margin: 0;
 }
-
+/* disabling scrollbar */
 #delete-task-form::-webkit-scrollbar{
     visibility: hidden;
 }
@@ -178,16 +179,13 @@ button[id="add-button"]:hover{
     margin-left: 10px;
     margin-bottom: 5px;
 }
-
 .task-container label{
     width: 80%;
 }
-
 .checkbox-class{
     margin-left: 10px;
     margin-right: 20px;
 }
-
 .category-span{
     border-radius: 5px;
     background-color: cornflowerblue;
@@ -265,8 +263,8 @@ button[id="add-button"]:hover{
 	background-color: rgba(87, 87, 87, 0.5);
 	/* display: inline-block; */
 	vertical-align: middle;
-	margin-right: 20px;
-	margin-left: 20px;
+	margin-right: 5px;
+	margin-left: 5px;
 	padding: 0px;
 }
 
